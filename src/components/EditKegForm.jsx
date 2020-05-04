@@ -3,9 +3,8 @@ import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
 
 function EditKegForm (props) {
-  const { keg } = props;
-  // console.log("Inside EditKegList.jsx");
-  // console.dir(keg.kegBrand);
+const { keg } = props;
+ 
 
   function handleEditKegFormSubmission(event) {
     event.preventDefault();
@@ -14,8 +13,10 @@ function EditKegForm (props) {
         kegBrand: event.target.kegBrand.value,
         kegPrice: event.target.kegPrice.value,
         kegFlavor: event.target.kegFlavor.value,
-        // kegQty: event.target.kegQty.value,
-        id: event.target.id.value});
+        pintQty: keg.pintQty,
+        id: keg.id
+      });
+        // key:event.target.key.value});
   }
 
   return (

@@ -3,7 +3,7 @@ import Keg from "./Keg";
 import PropTypes from "prop-types";
 
 function KegList(props) {
-  console.log("Inside KegList.jsx");
+  // console.log("Inside KegList.jsx");
   console.dir(props.kegList);
   return (
   
@@ -16,11 +16,8 @@ function KegList(props) {
           whenKegPintSaleClicked={props.onKegSelectPintSale}
           kegName={keg.kegName}
           kegBrand={keg.kegBrand}
-          // kegPrice={keg.kegPrice}
-          // kegFlavor={keg.kegFlavor}
-          // kegQty={keg.kegQty}
           id={keg.id}
-          key={keg.id}
+          key={keg.id}  //needed
         />
       ))}
     </React.Fragment>

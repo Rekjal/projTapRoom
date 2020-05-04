@@ -9,8 +9,9 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formToRender: false, //Local State
-      masterKegList: [],   //Shared State (passed down to KegList.jsx and from there to Keg.jsx)
-      selectedKeg: null,   //Shared State (passed down to KegDetail.jsx and EditKegForm.jsx )
+      masterKegList: [], //Shared State (passed down to KegList.jsx and from there to Keg.jsx)
+      selectedKeg: null, //Shared State (passed down to KegDetail.jsx and EditKegForm.jsx )
+      sellPint: false,
       editing: false,
       //pintsRemaining: 0
     };
@@ -30,7 +31,7 @@ class KegControl extends React.Component {
     }
   };
 
-  handleAddingNewKegToList = (newKeg) => {  //Adding new ticket involves Mutating state of SHARED STATE "masterKegList"
+  handleAddingNewKegToList = (newKeg) => { //Adding new ticket involves Mutating state of SHARED STATE "masterKegList"
     const newMasterKegList = this.state.masterKegList.concat(newKeg);
     this.setState({
       masterKegList: newMasterKegList,
@@ -38,27 +39,21 @@ class KegControl extends React.Component {
     });
   };
 
-  handlePintSale = (id) => { //handle pint sale
-    const selectedKegPintReduction = this.state.masterKegList.filter((keg) => keg.id === id)[0];
-   // const editedMasterKegList2 = this.state.masterKegList.filter((keg) => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
-    this.setState({
-      selectedKeg: selectedKegPintReduction,
-      editing: false,     //Set to false since dont wont EditKegForm component to show
-      selectedKeg: null,   //Set to false since wont want KefDetail component showing now that Keg is deleted
-      formToRender: false
-    });
-};
-    //handlePintSale = (id) => { //handle pint sale
-
-  handleChangingSelectedKeg = (id) => { //handle click event on a ticket
-    const selectedKeg = this.state.masterKegList.filter((keg) => keg.id === id)[0];
+  handleChangingSelectedKeg = (id) => {
+    //handle click event on a ticket
+    const selectedKeg = this.state.masterKegList.filter(
+      (keg) => keg.id === id
+    )[0];
     console.dir("Printing object value ");
     console.log(selectedKeg);
     this.setState({ selectedKeg: selectedKeg }); //selectedKeg will store object from SHARED SHARE masterKegList with a UUID corresponding to clicked keg
   };
 
-  handleDeletingKeg = (id) => {  //handle DELETE event on a ticket which boils down to removing that ticket object from SHARED STATE "masterKegList"
-    const newMasterKegList = this.state.masterKegList.filter((keg) => keg.id !== id);
+  handleDeletingKeg = (id) => {
+    //handle DELETE event on a ticket which boils down to removing that ticket object from SHARED STATE "masterKegList"
+    const newMasterKegList = this.state.masterKegList.filter(
+      (keg) => keg.id !== id
+    );
     this.setState({
       masterKegList: newMasterKegList,
       selectedKeg: null,
@@ -70,11 +65,27 @@ class KegControl extends React.Component {
   };
 
   handleEditingKegInList = (kegToEdit) => {
-    const editedMasterKegList = this.state.masterKegList.filter((keg) => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
+    const editedMasterKegList = this.state.masterKegList
+      .filter((keg) => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
     this.setState({
       masterKegList: editedMasterKegList,
-      editing: false,     //Set to false since dont wont EditKegForm component to show
-      selectedKeg: null   //Set to false since wont want KefDetail component showing now that Keg is deleted
+      editing: false, //Set to false since dont wont EditKegForm component to show
+      selectedKeg: null, //Set to false since wont want KefDetail component showing now that Keg is deleted
+    });
+  };
+
+  handlePintSale = (id) => {
+    const selectedKeg2 = this.state.masterKegList.filter(
+      (keg) => keg.id === id
+    )[0];
+    selectedKeg2.pintQty = selectedKeg2.pintQty - 1;
+    console.log("Executing PINT Method inside KegControl.jsx");
+    console.log(selectedKeg2);
+    const newMasterKegList2 = this.state.masterKegList.concat(selectedKeg2);
+    this.setState({
+      masterKegList: newMasterKegList2,
+      // sellPint: true,
     });
   };
 
@@ -82,25 +93,46 @@ class KegControl extends React.Component {
     let currentlyVisibleForm = null;
     let buttonText = null;
 
-    if (this.state.editing) {  
-      currentlyVisibleForm = <EditKegForm ticket={this.state.selectedKeg} onEditKeg={this.handleEditingKegInList} />;
+    if (this.state.editing) {
+      currentlyVisibleForm = (
+        <EditKegForm
+          keg={this.state.selectedKeg}
+          onEditKeg={this.handleEditingKegInList}
+        />
+      );
       buttonText = "Return to Keg List";
-    } else if (this.state.selectedKeg != null) {   //KegDetail.jsx shall render if STATE "selectedKeg" is NOT null
-      currentlyVisibleForm = <KegDetail keg={this.state.selectedKeg} onClickingDelete={this.handleDeletingKeg} onClickingEdit={this.handleEditClick} />;
-      //passing 3 PROPS (1st is passed as a prop called "keg"" down to our KegDetail)
+    }
+    else if (this.state.selectedKeg != null) {
+      console.log(
+        "Inside the this.state.selectedKeg != null CONDITIONAL RENDERING"
+      );
+      currentlyVisibleForm = (
+        <KegDetail
+          keg={this.state.selectedKeg}
+          onClickingDelete={this.handleDeletingKeg}
+          onClickingEdit={this.handleEditClick}
+        />
+      );
       buttonText = "Return to Keg List";
-    } else if (this.state.formToRender) { //NewKegForm.jsx shall render if LOCAL STATE "formToRender" is TRUE
-      currentlyVisibleForm = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
-      //   Pass handleAddingNewKegToList method down to NewKegForm component as a prop - passed as a prop called "onNewKegCreation"
-      buttonText = "Return to Keg List";
-    } else {   //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
-      currentlyVisibleForm = <KegList kegList={this.state.masterKegList} 
-      onKegSelectPintSale={this.handlePintSale}
-       onKegSelection={this.handleChangingSelectedKeg} />;  //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
+    } else if (this.state.formToRender) {
+      currentlyVisibleForm = (
+        <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
+      );
+       buttonText = "Return to Keg List";
+    } else { //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
+      
+      currentlyVisibleForm = (
+        <KegList
+          kegList={this.state.masterKegList}
+          onKegSelectPintSale={this.handlePintSale}
+          onKegSelection={this.handleChangingSelectedKeg}
+        />
+      ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
       buttonText = "Add New Keg";
     }
     return (
       <React.Fragment>
+        <h2>KeyControl.jsx</h2>
         {currentlyVisibleForm}
         <br></br>
         <button onClick={this.handleClick}>{buttonText}</button>{" "}

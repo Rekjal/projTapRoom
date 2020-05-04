@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 
 function KegDetail(props) {
   const { keg, onClickingDelete } = props;
-  console.log("Inside KegDetail.jsx");
   console.dir(keg.kegBrand);
   return (
     <React.Fragment>
-       <h1> KeyDetail.jsx</h1>
+       <h1> KeGDetail.jsx</h1>
       <h1>Keg Details for {keg.kegName} </h1>
       <p>
         <em>Brand is</em> <b>{keg.kegBrand}</b>
