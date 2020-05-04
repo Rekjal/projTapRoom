@@ -30,10 +30,10 @@ function Keg(props) {
         </p>
         <p>
           <em>id is</em> <b>{props.id}</b>
-        </p>
-        <button onClick={this.whenKegPintSaleClicked}>Sell</button>
+        </p>      
        
       </div>
+      <button onClick={props.whenKegPintSaleClicked}>Sell</button>
     </React.Fragment>
   );
 }

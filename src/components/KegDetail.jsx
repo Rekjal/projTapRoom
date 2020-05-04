@@ -19,7 +19,7 @@ function KegDetail(props) {
         <em>Flavor is</em> <b>{keg.kegFlavor}</b>
       </p>
       <p>
-        <em>Quantity is</em> <b>{keg.kegQty}</b>
+        <em>Pint Quantity is</em> <b>{keg.pintQty}</b>
       </p>
       <p>
         <em>Key is</em> <b>{keg.id}</b>

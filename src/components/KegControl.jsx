@@ -39,14 +39,16 @@ class KegControl extends React.Component {
   };
 
   handlePintSale = (id) => { //handle pint sale
-    //const selectedKegPintReduction = this.state.masterKegList.filter((keg) => keg.id === id)[0];
-    const editedMasterKegList2 = this.state.masterKegList.filter((keg) => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
+    const selectedKegPintReduction = this.state.masterKegList.filter((keg) => keg.id === id)[0];
+   // const editedMasterKegList2 = this.state.masterKegList.filter((keg) => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
     this.setState({
-      masterKegList: editedMasterKegList2,
+      selectedKeg: selectedKegPintReduction,
       editing: false,     //Set to false since dont wont EditKegForm component to show
-      selectedKeg: null   //Set to false since wont want KefDetail component showing now that Keg is deleted
+      selectedKeg: null,   //Set to false since wont want KefDetail component showing now that Keg is deleted
+      formToRender: false
     });
-
+};
+    //handlePintSale = (id) => { //handle pint sale
 
   handleChangingSelectedKeg = (id) => { //handle click event on a ticket
     const selectedKeg = this.state.masterKegList.filter((keg) => keg.id === id)[0];
@@ -92,12 +94,15 @@ class KegControl extends React.Component {
       //   Pass handleAddingNewKegToList method down to NewKegForm component as a prop - passed as a prop called "onNewKegCreation"
       buttonText = "Return to Keg List";
     } else {   //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
-      currentlyVisibleForm = <KegList kegList={this.state.masterKegList} onKegSelectPintSale={this.handlePintSale} onKegSelection={this.handleChangingSelectedKeg} />;  //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
+      currentlyVisibleForm = <KegList kegList={this.state.masterKegList} 
+      onKegSelectPintSale={this.handlePintSale}
+       onKegSelection={this.handleChangingSelectedKeg} />;  //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
       buttonText = "Add New Keg";
     }
     return (
       <React.Fragment>
         {currentlyVisibleForm}
+        <br></br>
         <button onClick={this.handleClick}>{buttonText}</button>{" "}
       </React.Fragment>
     );
