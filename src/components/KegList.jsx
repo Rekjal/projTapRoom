@@ -7,6 +7,8 @@ function KegList(props) {
   // console.log("Inside KegList.jsx");
   //console.dir(props.kegList);
   const { kegList, onKegSelectPintSale, onKegSelection, onAlertMessage } = props;
+  console.log("INside KEGLIST.JSX; Message is ");
+  console.log({onAlertMessage});
   return (
   
     <React.Fragment>
@@ -20,8 +22,7 @@ function KegList(props) {
           kegBrand={keg.kegBrand}
           id={keg.id}
           key={keg.id}  //needed
-          pintQty={keg.pintQty}
-          
+          pintQty={keg.pintQty}          
         />
       ))}
     </React.Fragment>

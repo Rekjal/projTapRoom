@@ -5,27 +5,19 @@ function KegDetail(props) {
   const { keg, onClickingDelete } = props;
   return (
     <React.Fragment>
-      <div>
+      <div > 
+        {/* className="KegDetail" */}
         {/* <h1> KeGDetail.jsx</h1> */}
-        <h1>Keg Details for {keg.kegName} </h1>
-        <p>
-          <em>Brand is</em> <b>{keg.kegBrand}</b>
-        </p>
-        <p>
-          <em>Price is</em> <b>${keg.kegPrice}</b>
-        </p>
-        <p>
-          <em>Flavor is</em> <b>{keg.kegFlavor}</b>
-        </p>
-        <p>
-          <em>Pint Quantity is</em> <b>{keg.pintQty}</b>
-        </p>
-        <p>
-          <em>Key is</em> <b>{keg.id}</b>
-        </p>
-
+        <h3>Keg Details: {keg.kegName} </h3>
+        <p>Brand: {keg.kegBrand}</p>
+        <p>Price: ${keg.kegPrice}</p>
+        <p>Flavor: {keg.kegFlavor}</p>
+        <p>Pint Quantity: {keg.pintQty}</p>
+        <p>Key: {keg.id}</p>
+        <br></br>
         <button onClick={props.onClickingEdit}>Update Keg</button>
         {/* When "Update Keg" button is clicked, STATE of "editing" is mutated (set to TRUE) in KegControl.jsx */}
+        <br></br>
         <button onClick={() => onClickingDelete(keg.id)}>Delete Keg</button>
         <hr />
       </div>

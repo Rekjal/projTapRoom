@@ -18,7 +18,8 @@ function Keg(props) {
   //   fontFamily: 'sans-serif',
   //   paddingTop: '50px'
   // }
-
+  console.log("INside KEGT.JSX; Message is ");
+  console.log({message});
   return (
     <React.Fragment>
       <div onClick={() => whenKegClicked(id)} className="FlashCard coralColor">
@@ -33,6 +34,8 @@ function Keg(props) {
           <p>
             <span className="black">Pint Qty: </span>{pintQty}        
            {message}
+           
+
           </p>
         </div>
         <br></br>

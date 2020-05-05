@@ -86,6 +86,7 @@ class KegControl extends React.Component {
   };
 
   handlePintSale = (id) => {
+    console.log("INside KEGCONTROL.JSX ");
     let tempAlertMessage = null;
     const tempSelectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
@@ -104,6 +105,11 @@ class KegControl extends React.Component {
     const tempNewMasterKegList = this.state.masterKegList
       .filter((keg) => keg.id !== id)
       .concat(tempSelectedKeg); //filter out clicked one & then concatenate pint qty updated object
+      console.log("INside KEGCONTROL.JSX; Message is ");
+    console.log(tempAlertMessage);
+
+    
+
     this.setState({
       masterKegList: tempNewMasterKegList,
       alertMessage: tempAlertMessage,
@@ -153,6 +159,7 @@ class KegControl extends React.Component {
       ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
       buttonText = "Add New Keg";
     }
+    
     return (
       <React.Fragment>
         <div id="card-list" className="flex-container">
