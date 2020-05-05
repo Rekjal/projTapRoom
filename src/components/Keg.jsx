@@ -1,62 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "bootstrap/dist/css/bootstrap.css";
 
 function Keg(props) {
+  const {
+    kegName,
+    message,
+    kegBrand,
+    id,
+    pintQty,
+    whenKegPintSaleClicked,
+    whenKegClicked,
+  } = props;
+
   // const myStyledComponentStyles = {
-  //   backgroundColor: "#ecf0f1",
-  //   fontFamily: "sans-serif",
-  //   paddingTop: "50px",
-  // };
-  //style={myStyledComponentStyles}
-  //  console.log("Inside Keg.jsx");
-  //  console.dir(props.whenKegClicked(props.id));
-
-  // function handlePintSale(event) {
-  //   event.preventDefault();
-  //   props.onEditKeg(
-  //      {kegQty: event.target.kegQty.value,
-  //       id: event.target.id.value});
+  //   backgroundColor: '#ecf0f1',
+  //   fontFamily: 'sans-serif',
+  //   paddingTop: '50px'
   // }
-  // function whenKegPinSellClickedFunction(event) {
-  //   event.preventDefault();
-  //   // console.log(event.target.kegName.value);
-  //   // console.log(event.target.kegBrand.value);
-  //   // console.log(event.target.kegPrice.value);
-  //   // console.log(event.target.kegFlavor.value);
-  //   // console.log(event.target.kegQty.value);
-  //   props.whenKegPintSaleClicked({
-  //     kegName: event.target.kegName.value,
-  //     kegBrand: event.target.kegBrand.value,
-  //     kegPrice: event.target.kegPrice.value,
-  //     kegFlavor: event.target.kegFlavor.value,
-  //     id: event.target.id.value,
-  //     pintQty: event.target.pintQty.value
-  //   });
-  //   }
-
-  const { kegName, message, kegBrand, id, pintQty, whenKegPintSaleClicked, whenKegClicked } = props;
-  // whenAlertMessage
 
   return (
     <React.Fragment>
-      <div onClick={() => whenKegClicked(id)} className="FlashCard" >
-        <h1> Key.jsx</h1>
-        <h1>Name is {kegName}</h1>
-        <p>
-          <em>Brand is</em> <b>{kegBrand}</b>
-        </p>
-        <p>
-          <em>id is</em> <b>{id}</b>
-        </p>
-        <p>
-          <em>Pint Left is</em> <b>{pintQty} {message}</b>
-        </p>
-      </div>
-      <div>
-        {/* <button onClick={() => {props.whenKegPintSaleClicked(props.id)}>Sell</button> */}
-        <button onClick={() => whenKegPintSaleClicked(id)}>Sell</button>
-        
-        {/* <button onClick={props.onClickingEdit}>Update Keg</button>  */}
+      <div onClick={() => whenKegClicked(id)} className="FlashCard coralColor">
+        <div className="divAlign">
+          {/* <p>  <em>Name is</em> <b>{kegName}</b>       </p> <br></br> */}
+            <p>
+            <span><span className="black">Name: </span>{kegName}</span>
+            <br></br>
+            <span><span className="black">Brand: </span>{kegBrand}</span>
+            <br></br>          
+            <span><span className="black">Pint Qty: </span>{pintQty}</span>
+            <br></br> 
+            {message} 
+            </p>
+        </div>
+      
+      {/* <div> */}
+       <button className="btn btn-success button" onClick={() => whenKegPintSaleClicked(id)} >Sell</button>
+      {/* </div> */}
       </div>
     </React.Fragment>
   );
@@ -68,7 +49,7 @@ Keg.propTypes = {
   kegName: PropTypes.string,
   kegBrand: PropTypes.string,
   message: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 export default Keg;

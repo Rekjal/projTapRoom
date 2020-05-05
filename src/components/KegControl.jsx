@@ -3,6 +3,7 @@ import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
 import KegDetail from "./KegDetail";
 import EditKegForm from "./EditKegForm";
+import "./FlashCard.css";
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class KegControl extends React.Component {
       masterKegList: [], //Shared State (passed down to KegList.jsx and from there to Keg.jsx)
       selectedKeg: null, //Shared State (passed down to KegDetail.jsx and EditKegForm.jsx )
       alertMessage: null,
-      editing: false
+      editing: false,
     };
   }
 
@@ -22,7 +23,7 @@ class KegControl extends React.Component {
         formToRender: false,
         selectedKeg: null,
         alertMessage: null,
-        editing: false
+        editing: false,
       });
     } else {
       this.setState((prevState) => ({
@@ -89,22 +90,24 @@ class KegControl extends React.Component {
     const tempSelectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
     )[0];
-    tempSelectedKeg.pintQty = tempSelectedKeg.pintQty -1;
-    
+    if (tempSelectedKeg.pintQty !== 0) {
+    tempSelectedKeg.pintQty = tempSelectedKeg.pintQty - 1;
+    }
+
     if (tempSelectedKeg.pintQty === 0) {
       tempAlertMessage = "Out Of Stock";
- }
-    else if (tempSelectedKeg.pintQty > 0)  {           
-      if ((tempSelectedKeg.pintQty >= 1) && (tempSelectedKeg.pintQty <=9)) {
-         tempAlertMessage = "Almost Empty";
+    } else if (tempSelectedKeg.pintQty > 0) {
+      if (tempSelectedKeg.pintQty >= 1 && tempSelectedKeg.pintQty <= 9) {
+        tempAlertMessage = "Almost Empty";
       }
     }
-    const tempNewMasterKegList = this.state.masterKegList.filter(
-      (keg) => keg.id !== id
-    ).concat(tempSelectedKeg);; //filter out clicked one & then concatenate pint qty updated object
+    const tempNewMasterKegList = this.state.masterKegList
+      .filter((keg) => keg.id !== id)
+      .concat(tempSelectedKeg); //filter out clicked one & then concatenate pint qty updated object
     this.setState({
       masterKegList: tempNewMasterKegList,
-      alertMessage: tempAlertMessage
+      alertMessage: tempAlertMessage,
+      formToRender: false
     });
   };
 
@@ -122,7 +125,7 @@ class KegControl extends React.Component {
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
       console.log(
-        "Inside the this.state.selectedKeg != null CONDITIONAL RENDERING"
+        "Inside the selectedKeg NOT null CONDITIONAL RENDERING"
       );
       currentlyVisibleForm = (
         <KegDetail
@@ -134,14 +137,14 @@ class KegControl extends React.Component {
       buttonText = "Return to Keg List";
     } else if (this.state.formToRender) {
       currentlyVisibleForm = (
-        <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
+        <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}  />
       );
       buttonText = "Return to Keg List";
     } else {
       //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
 
       currentlyVisibleForm = (
-        <KegList
+        <KegList className="grid-container flex-item card"
           kegList={this.state.masterKegList}
           onKegSelectPintSale={this.handlePintSale}
           onKegSelection={this.handleChangingSelectedKeg}
@@ -153,11 +156,10 @@ class KegControl extends React.Component {
     return (
       <React.Fragment>
         <div id="card-list" className="flex-container">
-        <h2>KeyControl.jsx</h2>
-       
-        {currentlyVisibleForm }
-        <br></br>
-        <button onClick={this.handleClick}>{buttonText}</button>{" "}
+          {currentlyVisibleForm}
+        </div><div>
+          <br></br>
+          <button onClick={this.handleClick}>{buttonText}</button>{" "}
         </div>
       </React.Fragment>
     );

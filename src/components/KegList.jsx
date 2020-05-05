@@ -1,6 +1,7 @@
 import React from "react";
 import Keg from "./Keg";
 import PropTypes from "prop-types";
+import './FlashCard.css';
 
 function KegList(props) {
   // console.log("Inside KegList.jsx");
@@ -9,8 +10,8 @@ function KegList(props) {
   return (
   
     <React.Fragment>
-      <hr />
-      <h1> KeyList.jsx</h1>
+      {/* <hr /> */}
+      {/* <h1> KeyList.jsx</h1> */}
       {kegList.map((keg) => (  // Loop through the master list passed down from KegControl.jsx call in turn pass each to Keg.jsx
         <Keg className="grid-container flex-item card" whenKegClicked={onKegSelection}
           whenKegPintSaleClicked={onKegSelectPintSale}

@@ -1,19 +1,13 @@
 .FlashCard {
-  width: 200px;
-  height: 200px;
-  border: .75px lightgrey solid;
+  width: 250px;
+  height: 150px;
+  border: 2px lightgrey solid;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 0 lightgrey;
   margin: 10px;
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: center;
-}
-
-.FlashCard img {
-  height: 90%;
-  width: auto;
-  margin: auto;
 }
 
 .FlashCard h1 {
@@ -32,3 +26,37 @@
   display: flex;
   align-items: center;
 }
+
+.coralColor {
+  color: coral;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  margin: auto;
+  padding:auto;
+  text-align: center;
+}
+
+h1, p, ul button {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+}
+
+.button {
+  /* align-self: left; */
+  /* align-self: flex-end; */
+  align-self:flex-end;
+  
+}
+
+.black {
+  color:#5c5c5c;
+  align-self: flex-end;
+  text-align: center;
+  /* color: #14173c; */
+}
+
+.divAlign {
+  align-self: normal;
+  text-align: left;
+}
+
