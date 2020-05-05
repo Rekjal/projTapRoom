@@ -22,7 +22,7 @@ class KegControl extends React.Component {
       this.setState({
         formToRender: false,
         selectedKeg: null,
-        sellPint: false,  // needed?
+        sellPint: false, // needed?
         editing: false,
       });
     } else {
@@ -32,8 +32,11 @@ class KegControl extends React.Component {
     }
   };
 
-  handleAddingNewKegToList = (newKeg) => { //Adding new ticket involves Mutating state of SHARED STATE "masterKegList"
-  console.log("Executing (NEW FORM) handleAddingNewKegToList inside KegControl.jsx - OBJECT IS PASTED BELOW");
+  handleAddingNewKegToList = (newKeg) => {
+    //Adding new ticket involves Mutating state of SHARED STATE "masterKegList"
+    console.log(
+      "Executing (NEW FORM) handleAddingNewKegToList inside KegControl.jsx - OBJECT IS PASTED BELOW"
+    );
     console.log(newKeg);
     const newMasterKegList = this.state.masterKegList.concat(newKeg);
     this.setState({
@@ -43,7 +46,9 @@ class KegControl extends React.Component {
   };
 
   handleChangingSelectedKeg = (id) => {
-    console.log("Executing handleChangingSelectedKeg inside KegControl.jsx - ID IS PASTED BELOW");
+    console.log(
+      "Executing handleChangingSelectedKeg inside KegControl.jsx - ID IS PASTED BELOW"
+    );
     console.log(id);
     //handle click event on a ticket
     const selectedKeg = this.state.masterKegList.filter(
@@ -82,27 +87,20 @@ class KegControl extends React.Component {
 
   handlePintSale = (id) => {
     console.log("Executing PINT Method inside KegControl.jsx");
-    //const newMasterKegList2 = this.state.masterKegList.filter( (keg) => keg.id !== id ); //filter out clicked one
-    console.log("Inside handlePintSale - ID is pasted below");
-     console.log(id);
-    //this.setState({
-    //  masterKegList: newMasterKegList2
-      // sellPint: true,
-   // });
-    
-  //   const selectedKeg2 = this.state.masterKegList.filter( (keg) => keg.id === id)[0];
-  //   console.log("Inside handlePintSale - selectedKeg2 before ");
-  //   console.log(selectedKeg2);
-  // //  selectedKeg2.pintQty = selectedKeg2.pintQty;
-    
-  //   console.log("Inside handlePintSale - selectedKeg2 after ");
-  //   console.log(selectedKeg2);
-
-  //   const newMasterKegList3 = this.state.masterKegList.concat(selectedKeg2);
-  //   this.setState({
-  //     masterKegList: newMasterKegList3,
-  //     // sellPint: true,
-    // });
+    const selectedKeg2 = this.state.masterKegList.filter(
+      (keg) => keg.id === id
+    )[0];
+    if (selectedKeg2.pintQty > 0) {
+      selectedKeg2.pintQty = selectedKeg2.pintQty -1;
+    }
+    console.dir(this.state.masterKegList);
+    const newMasterKegList2 = this.state.masterKegList.filter(
+      (keg) => keg.id !== id
+    ).concat(selectedKeg2);; //filter out clicked one & then concatenate pint qty updated object
+    this.setState({
+      masterKegList: newMasterKegList2
+    });
+   console.dir(this.state.masterKegList);
   };
 
   render() {
@@ -117,8 +115,7 @@ class KegControl extends React.Component {
         />
       );
       buttonText = "Return to Keg List";
-    }
-    else if (this.state.selectedKeg != null) {
+    } else if (this.state.selectedKeg != null) {
       console.log(
         "Inside the this.state.selectedKeg != null CONDITIONAL RENDERING"
       );
@@ -134,9 +131,10 @@ class KegControl extends React.Component {
       currentlyVisibleForm = (
         <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
       );
-       buttonText = "Return to Keg List";
-    } else { //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
-      
+      buttonText = "Return to Keg List";
+    } else {
+      //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
+
       currentlyVisibleForm = (
         <KegList
           kegList={this.state.masterKegList}
