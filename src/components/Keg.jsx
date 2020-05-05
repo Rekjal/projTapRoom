@@ -24,20 +24,27 @@ function Keg(props) {
       <div onClick={() => whenKegClicked(id)} className="FlashCard coralColor">
         <div className="divAlign">
           {/* <p>  <em>Name is</em> <b>{kegName}</b>       </p> <br></br> */}
-            <p>
-            <span><span className="black">Name: </span>{kegName}</span>
-            <br></br>
-            <span><span className="black">Brand: </span>{kegBrand}</span>
-            <br></br>          
-            <span><span className="black">Pint Qty: </span>{pintQty}</span>
-            <br></br> 
-            {message} 
-            </p>
+          <p>
+            <span className="black">Name: </span>{kegName}>
+          </p>
+          <p>
+            <span className="black">Brand: </span>{kegBrand}
+          </p>
+          <p>
+            <span className="black">Pint Qty: </span>{pintQty}        
+           {message}
+          </p>
         </div>
-      
-      {/* <div> */}
-       <button className="btn btn-success button" onClick={() => whenKegPintSaleClicked(id)} >Sell</button>
-      {/* </div> */}
+        <br></br>
+
+        {/* <div> */}
+        <button
+          className="btn btn-success button"
+          onClick={() => whenKegPintSaleClicked(id)}
+        >
+          Sell
+        </button>
+        {/* </div> */}
       </div>
     </React.Fragment>
   );

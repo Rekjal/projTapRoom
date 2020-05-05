@@ -159,7 +159,7 @@ class KegControl extends React.Component {
           {currentlyVisibleForm}
         </div><div>
           <br></br>
-          <button onClick={this.handleClick}>{buttonText}</button>{" "}
+          <button className = "button_2" onClick={this.handleClick}>{buttonText}</button>{" "}
         </div>
       </React.Fragment>
     );

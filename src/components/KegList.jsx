@@ -13,7 +13,7 @@ function KegList(props) {
       {/* <hr /> */}
       {/* <h1> KeyList.jsx</h1> */}
       {kegList.map((keg) => (  // Loop through the master list passed down from KegControl.jsx call in turn pass each to Keg.jsx
-        <Keg className="grid-container flex-item card" whenKegClicked={onKegSelection}
+        <Keg whenKegClicked={onKegSelection}
           whenKegPintSaleClicked={onKegSelectPintSale}
           message={onAlertMessage}
           kegName={keg.kegName}

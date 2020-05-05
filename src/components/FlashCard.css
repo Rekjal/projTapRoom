@@ -1,6 +1,6 @@
 .FlashCard {
   width: 250px;
-  height: 150px;
+  height: 200px;
   border: 2px lightgrey solid;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 0 lightgrey;
@@ -10,10 +10,7 @@
   justify-content: center;
 }
 
-.FlashCard h1 {
-  color:#5c5c5c;
-  /* color: #14173c; */
-}
+
 
 #card-list {
   display: flex;
@@ -33,30 +30,43 @@
   font-weight: 700;
   margin: auto;
   padding:auto;
-  text-align: center;
+  text-align: center;  /* critical */ 
 }
 
-h1, p, ul button {
+P {
   font-family: 'Indie Flower', cursive;
   font-weight: 700;
 }
 
-.button {
-  /* align-self: left; */
-  /* align-self: flex-end; */
-  align-self:flex-end;
-  
+h1 {
+  font-family: 'Indie Flower', cursive;
+  color:#5c5c5c;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .black {
   color:#5c5c5c;
   align-self: flex-end;
   text-align: center;
-  /* color: #14173c; */
 }
 
-.divAlign {
-  align-self: normal;
-  text-align: left;
+.divAlign {              /*  Moved Name/Brand/Pint Qty block as a whole */  
+  align-self: normal;     /* leave this "normal" */ 
+  text-align: left; 
 }
 
+.button {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  /* text-align: left; */
+  align-items: flex-end;
+}
+.button_2 {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
+  align-items: center;
+  margin-left: 47%;     /*USEFUL: Aligns button to centre  */
+}
