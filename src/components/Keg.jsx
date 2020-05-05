@@ -34,10 +34,12 @@ function Keg(props) {
   //   });
   //   }
 
-  const { kegName, kegBrand, id, whenKegPintSaleClicked, whenKegClicked } = props;
+  const { kegName, message, kegBrand, id, pintQty, whenKegPintSaleClicked, whenKegClicked } = props;
+  // whenAlertMessage
+
   return (
     <React.Fragment>
-      <div onClick={() => whenKegClicked(id)}>
+      <div onClick={() => whenKegClicked(id)} className="FlashCard" >
         <h1> Key.jsx</h1>
         <h1>Name is {kegName}</h1>
         <p>
@@ -45,6 +47,9 @@ function Keg(props) {
         </p>
         <p>
           <em>id is</em> <b>{id}</b>
+        </p>
+        <p>
+          <em>Pint Left is</em> <b>{pintQty} {message}</b>
         </p>
       </div>
       <div>
@@ -62,11 +67,8 @@ Keg.propTypes = {
   whenKegPintSaleClicked: PropTypes.func,
   kegName: PropTypes.string,
   kegBrand: PropTypes.string,
-  // kegPrice: PropTypes.string,
-  // kegFlavor: PropTypes.string,
-  // kegQty: PropTypes.string,
-  id: PropTypes.string,
-  // key: PropTypes.string
+  message: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default Keg;

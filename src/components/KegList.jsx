@@ -4,20 +4,23 @@ import PropTypes from "prop-types";
 
 function KegList(props) {
   // console.log("Inside KegList.jsx");
-  console.dir(props.kegList);
+  //console.dir(props.kegList);
+  const { kegList, onKegSelectPintSale, onKegSelection, onAlertMessage } = props;
   return (
   
     <React.Fragment>
       <hr />
       <h1> KeyList.jsx</h1>
-      {props.kegList.map((keg) => (  // Loop through the master list passed down from KegControl.jsx call in turn pass each to Keg.jsx
-        <Keg
-          whenKegClicked={props.onKegSelection}
-          whenKegPintSaleClicked={props.onKegSelectPintSale}
+      {kegList.map((keg) => (  // Loop through the master list passed down from KegControl.jsx call in turn pass each to Keg.jsx
+        <Keg className="grid-container flex-item card" whenKegClicked={onKegSelection}
+          whenKegPintSaleClicked={onKegSelectPintSale}
+          message={onAlertMessage}
           kegName={keg.kegName}
           kegBrand={keg.kegBrand}
           id={keg.id}
           key={keg.id}  //needed
+          pintQty={keg.pintQty}
+          
         />
       ))}
     </React.Fragment>
@@ -27,7 +30,8 @@ function KegList(props) {
 KegList.propTypes = {
   kegList: PropTypes.array,
   onKegSelectPintSale: PropTypes.func,
-  onKegSelection: PropTypes.func
+  onKegSelection: PropTypes.func,
+  onAlertMessage: PropTypes.string
 };
 
 export default KegList;
