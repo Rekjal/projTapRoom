@@ -6,6 +6,7 @@ function KegDetail(props) {
   console.dir(keg.kegBrand);
   return (
     <React.Fragment>
+      <div> 
        <h1> KeGDetail.jsx</h1>
       <h1>Keg Details for {keg.kegName} </h1>
       <p>
@@ -28,6 +29,7 @@ function KegDetail(props) {
       {/* When "Update Keg" button is clicked, STATE of "editing" is mutated (set to TRUE) in KegControl.jsx */}
       <button onClick={() => onClickingDelete(keg.id)}>Delete Keg</button>
       <hr />
+      </div>
     </React.Fragment>
   );
 }

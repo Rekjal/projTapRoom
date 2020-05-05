@@ -34,20 +34,24 @@ function Keg(props) {
   //   });
   //   }
 
+  const { kegName, kegBrand, id, whenKegPintSaleClicked, whenKegClicked } = props;
   return (
     <React.Fragment>
-      <div onClick={() => props.whenKegClicked(props.id)}>
+      <div onClick={() => whenKegClicked(id)}>
         <h1> Key.jsx</h1>
-        <h1>Name is {props.kegName}</h1>
+        <h1>Name is {kegName}</h1>
         <p>
-          <em>Brand is</em> <b>{props.kegBrand}</b>
+          <em>Brand is</em> <b>{kegBrand}</b>
         </p>
         <p>
-          <em>id is</em> <b>{props.id}</b>
+          <em>id is</em> <b>{id}</b>
         </p>
       </div>
       <div>
-             <button onClick={props.whenKegPintSaleClicked}>Sell</button>
+        {/* <button onClick={() => {props.whenKegPintSaleClicked(props.id)}>Sell</button> */}
+        <button onClick={() => whenKegPintSaleClicked(id)}>Sell</button>
+        
+        {/* <button onClick={props.onClickingEdit}>Update Keg</button>  */}
       </div>
     </React.Fragment>
   );

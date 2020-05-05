@@ -22,6 +22,7 @@ class KegControl extends React.Component {
       this.setState({
         formToRender: false,
         selectedKeg: null,
+        sellPint: false,  // needed?
         editing: false,
       });
     } else {
@@ -32,6 +33,8 @@ class KegControl extends React.Component {
   };
 
   handleAddingNewKegToList = (newKeg) => { //Adding new ticket involves Mutating state of SHARED STATE "masterKegList"
+  console.log("Executing (NEW FORM) handleAddingNewKegToList inside KegControl.jsx - OBJECT IS PASTED BELOW");
+    console.log(newKeg);
     const newMasterKegList = this.state.masterKegList.concat(newKeg);
     this.setState({
       masterKegList: newMasterKegList,
@@ -40,6 +43,8 @@ class KegControl extends React.Component {
   };
 
   handleChangingSelectedKeg = (id) => {
+    console.log("Executing handleChangingSelectedKeg inside KegControl.jsx - ID IS PASTED BELOW");
+    console.log(id);
     //handle click event on a ticket
     const selectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
@@ -76,17 +81,28 @@ class KegControl extends React.Component {
   };
 
   handlePintSale = (id) => {
-    const selectedKeg2 = this.state.masterKegList.filter(
-      (keg) => keg.id === id
-    )[0];
-    selectedKeg2.pintQty = selectedKeg2.pintQty - 1;
     console.log("Executing PINT Method inside KegControl.jsx");
-    console.log(selectedKeg2);
-    const newMasterKegList2 = this.state.masterKegList.concat(selectedKeg2);
-    this.setState({
-      masterKegList: newMasterKegList2,
+    //const newMasterKegList2 = this.state.masterKegList.filter( (keg) => keg.id !== id ); //filter out clicked one
+    console.log("Inside handlePintSale - ID is pasted below");
+     console.log(id);
+    //this.setState({
+    //  masterKegList: newMasterKegList2
       // sellPint: true,
-    });
+   // });
+    
+  //   const selectedKeg2 = this.state.masterKegList.filter( (keg) => keg.id === id)[0];
+  //   console.log("Inside handlePintSale - selectedKeg2 before ");
+  //   console.log(selectedKeg2);
+  // //  selectedKeg2.pintQty = selectedKeg2.pintQty;
+    
+  //   console.log("Inside handlePintSale - selectedKeg2 after ");
+  //   console.log(selectedKeg2);
+
+  //   const newMasterKegList3 = this.state.masterKegList.concat(selectedKeg2);
+  //   this.setState({
+  //     masterKegList: newMasterKegList3,
+  //     // sellPint: true,
+    // });
   };
 
   render() {

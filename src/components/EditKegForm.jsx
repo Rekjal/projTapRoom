@@ -19,6 +19,8 @@ const { keg } = props;
         // key:event.target.key.value});
   }
 
+  console.log ("Inside EditKegForm.jsx:  pintQty: keg.pintQty is" +  keg.pintQty);
+  console.log ("Inside EditKegForm.jsx:  id: keg.id is" +  keg.id);
   return (
     <React.Fragment>
        <h1> EditKegForm.jsx</h1>
