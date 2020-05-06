@@ -18,36 +18,42 @@ function Keg(props) {
   //   fontFamily: 'sans-serif',
   //   paddingTop: '50px'
   // }
-  console.log("INside KEGT.JSX; Message is ");
-  console.log({message});
+  console.log("INSIDE KEGT.JSX:::::kegName:kegBrand:id:pintQty:message");
+  console.dir({ kegName });
+  console.dir({ kegBrand });
+  console.dir({ id });
+  console.dir({ pintQty });
+  console.dir({ message });
+  // var messageText;
+
   return (
     <React.Fragment>
-      <div onClick={() => whenKegClicked(id)} className="FlashCard coralColor">
+      <div className="FlashCard coralColor">
+      <div onClick={() => whenKegClicked(id)} >
         <div className="divAlign">
-          {/* <p>  <em>Name is</em> <b>{kegName}</b>       </p> <br></br> */}
           <p>
-            <span className="black">Name: </span>{kegName}>
+            <span className="black">Name: </span>
+            {kegName}>
           </p>
           <p>
-            <span className="black">Brand: </span>{kegBrand}
+            <span className="black">Brand: </span>
+            {kegBrand}
           </p>
           <p>
-            <span className="black">Pint Qty: </span>{pintQty}        
-           {message}
-           
-
+            <span className="black">Pint Qty: </span>
+            {pintQty}
           </p>
+          {message === "Almost Empty" ? (
+            <div className="yellowColor">{message}</div>
+          ) : (
+            <div className="redColor">{message}</div>
+          )}
         </div>
         <br></br>
-
-        {/* <div> */}
-        <button
-          className="btn btn-success button"
-          onClick={() => whenKegPintSaleClicked(id)}
-        >
-          Sell
-        </button>
-        {/* </div> */}
+      </div>
+      <div>
+        <button className="btn btn-success button" onClick={() => whenKegPintSaleClicked(id)} >Sell</button>
+      </div>
       </div>
     </React.Fragment>
   );

@@ -6,9 +6,9 @@ import './FlashCard.css';
 function KegList(props) {
   // console.log("Inside KegList.jsx");
   //console.dir(props.kegList);
-  const { kegList, onKegSelectPintSale, onKegSelection, onAlertMessage } = props;
+  const { kegList, onKegSelectPintSale, onKegSelection } = props;
   console.log("INside KEGLIST.JSX; Message is ");
-  console.log({onAlertMessage});
+ 
   return (
   
     <React.Fragment>
@@ -17,7 +17,7 @@ function KegList(props) {
       {kegList.map((keg) => (  // Loop through the master list passed down from KegControl.jsx call in turn pass each to Keg.jsx
         <Keg whenKegClicked={onKegSelection}
           whenKegPintSaleClicked={onKegSelectPintSale}
-          message={onAlertMessage}
+          message={keg.alertMessage2}
           kegName={keg.kegName}
           kegBrand={keg.kegBrand}
           id={keg.id}
@@ -32,8 +32,7 @@ function KegList(props) {
 KegList.propTypes = {
   kegList: PropTypes.array,
   onKegSelectPintSale: PropTypes.func,
-  onKegSelection: PropTypes.func,
-  onAlertMessage: PropTypes.string
+  onKegSelection: PropTypes.func
 };
 
 export default KegList;

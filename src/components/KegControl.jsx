@@ -22,7 +22,6 @@ class KegControl extends React.Component {
       this.setState({
         formToRender: false,
         selectedKeg: null,
-        alertMessage: null,
         editing: false,
       });
     } else {
@@ -86,34 +85,29 @@ class KegControl extends React.Component {
   };
 
   handlePintSale = (id) => {
-    console.log("INside KEGCONTROL.JSX ");
-    let tempAlertMessage = null;
+    console.log("Inside KEGCONTROL.JSX ");
     const tempSelectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
     )[0];
     if (tempSelectedKeg.pintQty !== 0) {
-    tempSelectedKeg.pintQty = tempSelectedKeg.pintQty - 1;
+      tempSelectedKeg.pintQty = tempSelectedKeg.pintQty - 1;
     }
 
     if (tempSelectedKeg.pintQty === 0) {
-      tempAlertMessage = "Out Of Stock";
+      tempSelectedKeg.alertMessage2 = "Out Of Stock";
     } else if (tempSelectedKeg.pintQty > 0) {
       if (tempSelectedKeg.pintQty >= 1 && tempSelectedKeg.pintQty <= 9) {
-        tempAlertMessage = "Almost Empty";
+        tempSelectedKeg.alertMessage2 = "Almost Empty";
       }
     }
     const tempNewMasterKegList = this.state.masterKegList
       .filter((keg) => keg.id !== id)
       .concat(tempSelectedKeg); //filter out clicked one & then concatenate pint qty updated object
-      console.log("INside KEGCONTROL.JSX; Message is ");
-    console.log(tempAlertMessage);
-
-    
+    console.log("INside KEGCONTROL.JSX; Message is ");
 
     this.setState({
       masterKegList: tempNewMasterKegList,
-      alertMessage: tempAlertMessage,
-      formToRender: false
+      formToRender: false,
     });
   };
 
@@ -130,9 +124,7 @@ class KegControl extends React.Component {
       );
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
-      console.log(
-        "Inside the selectedKeg NOT null CONDITIONAL RENDERING"
-      );
+      console.log("Inside the selectedKeg NOT null CONDITIONAL RENDERING");
       currentlyVisibleForm = (
         <KegDetail
           keg={this.state.selectedKeg}
@@ -143,30 +135,33 @@ class KegControl extends React.Component {
       buttonText = "Return to Keg List";
     } else if (this.state.formToRender) {
       currentlyVisibleForm = (
-        <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}  />
+        <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
       );
       buttonText = "Return to Keg List";
     } else {
       //KegList.jsx shall render if LOCAL STATE "formToRender" is FALSE
 
       currentlyVisibleForm = (
-        <KegList className="grid-container flex-item card"
+        <KegList
+          className="grid-container flex-item card"
           kegList={this.state.masterKegList}
           onKegSelectPintSale={this.handlePintSale}
           onKegSelection={this.handleChangingSelectedKeg}
-          onAlertMessage={this.state.alertMessage}
         />
       ); //To handle user click on Keg.jsx, pass this method; Pass SHARED STATE "masterKegList" KegList.jsx
       buttonText = "Add New Keg";
     }
-    
+
     return (
       <React.Fragment>
         <div id="card-list" className="flex-container">
           {currentlyVisibleForm}
-        </div><div>
+        </div>
+        <div>
           <br></br>
-          <button className = "button_2" onClick={this.handleClick}>{buttonText}</button>{" "}
+          <button className="button_2" onClick={this.handleClick}>
+            {buttonText}
+          </button>{" "}
         </div>
       </React.Fragment>
     );

@@ -1,6 +1,6 @@
 .FlashCard {
   width: 250px;
-  height: 150px;
+  height: 175px;
   border: 2px lightgrey solid;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 0 lightgrey;
@@ -88,4 +88,14 @@ h3 {
   font-weight: 700;
   align-items: center;
   margin-left: 47%;     /*USEFUL: Aligns button to centre  */
+}
+
+.redColor {
+  color:#FF0000;
+  font-weight: 500;
+}
+
+.yellowColor {
+  color: yellow;
+  font-weight: 500;
 }
