@@ -24,6 +24,10 @@ Additional feature built into this application are as below ..
 
 -  When pints left in a keg is under 10, keg gets updated with a message `"Almost Empty"`.
 
+## Component Tree Diagram
+
+![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Component_tree_diagram.png)
+
 ##### Date: **05/08/2020**
 
 #### By **Salim Mayan**
