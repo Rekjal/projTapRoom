@@ -11,9 +11,9 @@ class KegControl extends React.Component {
     this.state = {
       formToRender: false, //Local State
       masterKegList: [], //Shared State (passed down to KegList.jsx and from there to Keg.jsx)
-      selectedKeg: null, 
+      selectedKeg: null,
       alertMessage: null,
-      editing: false
+      editing: false,
     };
   }
 
@@ -84,19 +84,29 @@ class KegControl extends React.Component {
     }
 
     if (tempSelectedKeg.pintQty === 0) {
-      tempSelectedKeg.alertMessage = "Out Of Stock";
+      tempSelectedKeg.alertMessage = "Out Of Stock !!!";
       tempSelectedKeg.disableButton = tempDisableButton;
     } else if (tempSelectedKeg.pintQty > 0) {
       if (tempSelectedKeg.pintQty >= 1 && tempSelectedKeg.pintQty <= 9) {
-        tempSelectedKeg.alertMessage = "Almost Empty";
+        tempSelectedKeg.alertMessage = "Almost Empty !";
       }
     }
+
+    //Capture ID's of each object into am array so that I can re-render cards in the correct order
+    const iDArray = this.state.masterKegList.map((element) => element.id);
+    console.log("KEYCONTROL - Printing iDArray");
+    console.log(iDArray);
+
     const tempNewMasterKegList = this.state.masterKegList
       .filter((keg) => keg.id !== id)
-      .concat(tempSelectedKeg); //filter out clicked one & then concatenate pint qty updated object
+      .concat(tempSelectedKeg); //concatenate edited slice (with updated pintQty, alertMessage, and  disableButton) to object array
+
+    const orderedNewMasterKegList = iDArray.map(
+      (i) => tempNewMasterKegList.filter((e) => e.id === i)[0]
+    );  //removing object from Array to update property upset orginal order of array. This restores array to orginal order
 
     this.setState({
-      masterKegList: tempNewMasterKegList,
+      masterKegList: orderedNewMasterKegList,
       disableButton: tempDisableButton,
       formToRender: false,
     });
@@ -149,7 +159,12 @@ class KegControl extends React.Component {
         </div>
         <div>
           <br></br>
-          <button className="buttonPrimary btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
+          <button
+            className="buttonPrimary btn btn-primary"
+            onClick={this.handleClick}
+          >
+            {buttonText}
+          </button>
         </div>
       </React.Fragment>
     );

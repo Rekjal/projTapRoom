@@ -1,48 +1,46 @@
 .KegCard {
-  width: 325px;
+  width: 300px;
   height: 250px;
   border: 2px lightgrey solid;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 0 lightgrey;
   margin-bottom: 10px;
   margin-top: 10px;
-  padding:5px;
+  padding: 5px;
   justify-content: space-between;
 }
-
 
 #card-list {
   display: flex;
   flex-flow: row wrap;
   justify-items: center;
   flex-basis: auto;
-  padding:5px;
+  padding: 5px;
 }
-
 
 .card {
   display: flex;
   align-items: left;
-  padding:5px;
+  padding: 5px;
 }
 
 .coralColor {
   color: coral;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-weight: 700;
   margin: auto;
-  padding:auto;
-  text-align: center;  /* critical */ 
+  padding: auto;
+  text-align: center; /* critical */
 }
 
-P {
-  font-family: 'Indie Flower', cursive;
+p {
+  font-family: "Indie Flower", cursive;
   font-weight: 700;
 }
 
 h1 {
-  font-family: 'Indie Flower', cursive;
-  color:#5c5c5c;
+  font-family: "Indie Flower", cursive;
+  color: #5c5c5c;
   font-weight: 700;
   text-align: center;
   margin-bottom: 50px;
@@ -50,68 +48,68 @@ h1 {
 }
 
 h3 {
-  font-family: 'Indie Flower', cursive;
-  color:#5c5c5c;
+  font-family: "Indie Flower", cursive;
+  color: #5c5c5c;
   font-weight: 3000;
   text-align: center;
   margin-bottom: 10px;
   margin-bottom: 10px;
 }
 
-
-
 .black {
-  color:#5c5c5c;
+  color: #5c5c5c;
   align-self: flex-end;
   text-align: center;
 }
 
-.divAlign {              /*  Moved Name/Brand/Pint Qty block as a whole */  
+.divAlign {
   display: flex;
   flex-direction: column;
 }
 
-.divAlign1{
-  flex:1;
-}
-.divAlign1 p{
-  flex:1;
-}
-.buttonWidth{
-  flex:1;
+.divAlign1 {
+  flex: 1;
 }
 
-.buttonWidth button{
+.divAlign1 p {
+  flex: 1;
+}
+
+.buttonWidth {
+  flex: 1;
+}
+
+.buttonWidth button {
   flex: 1;
   min-width: 100%;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-weight: 700;
-  /* text-align: left; */
   display: block;
   width: 100%;
-  
   align-items: flex-end;
 }
 
 .buttonPrimary {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-weight: 3000;
   align-items: center;
-  margin-left: 45%;     /*USEFUL: Aligns button to centre  */
+  margin-left: 45%; /*USEFUL: Aligns button to centre  */
 }
 
 .redColor {
-  color:#FF0000;
-  font-weight: 3000;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: large;
 }
 
-.yellowColor {
+.purpleColor {
   color: purple;
-  font-weight: 3000;
+  font-weight: bold;
+  font-size: large;
 }
 
 .kegDetail {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   text-align: left;
   font-weight: 700;
   display: flex;
@@ -133,17 +131,15 @@ h3 {
   margin: 0px 0px 0px 0px;
   margin-right: 10px;
   margin-left: 10px;
-  /* margin: 0px auto 0 auto; */
-  justify-content: space-between;   /* combined with "flex-basis: 40%;" in child creates gap between buttons */
- }
-
-.kegDetailButton button {
-  flex-basis: 40%; 
+  justify-content: space-between; /* combined with "flex-basis: 40%;" in child creates gap between buttons */
 }
 
+.kegDetailButton button {
+  flex-basis: 40%;
+}
 
 .reUsableKegForm {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   text-align: left;
   font-weight: 700;
   display: flex;
@@ -170,25 +166,23 @@ h3 {
   margin-top: 10px;
   margin-bottom: 30px;
   margin-left: 10px;
-  /* margin: 0px auto 0 auto; */
-  justify-content: space-between;  
- }
+  justify-content: space-between;
+}
 
 .reUsableKegForm button {
-  flex-basis: 40%; 
-  flex:1;
+  flex-basis: 40%;
+  flex: 1;
   margin-top: 10px;
   margin-left: 10px;
-
 }
 
 .reUsableKegForm h3 {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   color: coral;
   font-weight: 700;
   margin: auto;
-  padding:auto;
-  text-align: center;  /* critical */ 
+  padding: auto;
+  text-align: center; /* critical */
   font-weight: 3000;
   margin-bottom: 10px;
 }
