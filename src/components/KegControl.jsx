@@ -11,10 +11,9 @@ class KegControl extends React.Component {
     this.state = {
       formToRender: false, //Local State
       masterKegList: [], //Shared State (passed down to KegList.jsx and from there to Keg.jsx)
-      selectedKeg: null, //Shared State (passed down to KegDetail.jsx and EditKegForm.jsx )
+      selectedKeg: null, 
       alertMessage: null,
-      editing: false,
-      disableButton: null,
+      editing: false
     };
   }
 
@@ -85,11 +84,11 @@ class KegControl extends React.Component {
     }
 
     if (tempSelectedKeg.pintQty === 0) {
-      tempSelectedKeg.alertMessage2 = "Out Of Stock";
+      tempSelectedKeg.alertMessage = "Out Of Stock";
       tempSelectedKeg.disableButton = tempDisableButton;
     } else if (tempSelectedKeg.pintQty > 0) {
       if (tempSelectedKeg.pintQty >= 1 && tempSelectedKeg.pintQty <= 9) {
-        tempSelectedKeg.alertMessage2 = "Almost Empty";
+        tempSelectedKeg.alertMessage = "Almost Empty";
       }
     }
     const tempNewMasterKegList = this.state.masterKegList

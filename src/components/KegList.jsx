@@ -12,9 +12,10 @@ function KegList(props) {
         <Keg
           whenKegClicked={onKegSelection}
           whenKegPintSaleClicked={onKegSelectPintSale}
-          message={keg.alertMessage2}
+          message={keg.alertMessage}
           kegName={keg.kegName}
           kegBrand={keg.kegBrand}
+          kegPrice={keg.kegPrice}
           disableButton={keg.disableButton}
           id={keg.id}
           key={keg.id} //needed

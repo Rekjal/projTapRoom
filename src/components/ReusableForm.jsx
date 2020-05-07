@@ -24,7 +24,7 @@ function ReusableForm(props) {
             required
             type="number"
             name="kegPrice"
-            placeholder="Enter Keg Price"
+            placeholder="Enter Keg Price ($)"
           />
           <input
             required

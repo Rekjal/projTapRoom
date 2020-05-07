@@ -17,7 +17,7 @@ function KegDetail(props) {
         </p>
         <p>
           <span className="black">Price: </span>
-          {keg.kegPrice}
+          ${keg.kegPrice}
         </p>
         <p>
           <span className="black">Flavor: </span>

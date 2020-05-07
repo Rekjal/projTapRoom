@@ -1,6 +1,6 @@
 .KegCard {
-  width: 250px;
-  height: 220px;
+  width: 325px;
+  height: 250px;
   border: 2px lightgrey solid;
   border-radius: 5px;
   box-shadow: 3px 3px 3px 0 lightgrey;
@@ -106,7 +106,7 @@ h3 {
 }
 
 .yellowColor {
-  color: orange;
+  color: purple;
   font-weight: 3000;
 }
 

@@ -12,6 +12,7 @@ function Keg(props) {
     whenKegPintSaleClicked,
     whenKegClicked,
     disableButton,
+    kegPrice
   } = props;
 
   return (
@@ -21,6 +22,10 @@ function Keg(props) {
           <div className="divAlign1" onClick={() => whenKegClicked(id)}>
             <p><span className="black">Name: </span>{kegName}</p>
             <p><span className="black">Brand: </span>{kegBrand}</p>
+            <p><span className="black">Price: </span>${kegPrice}</p>
+
+            <p>{kegPrice => 10 ? (<span className="yellowColor">{message}</span>) : (<span className="redColor">{message}</span>)}</p>
+         
             <p><span className="black">Pint Qty: </span>{pintQty}</p>
             <p>{message === "Almost Empty" ? (<span className="yellowColor">{message}</span>) : (<span className="redColor">{message}</span>)}</p>
           </div>
