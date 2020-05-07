@@ -94,8 +94,6 @@ When above form is submitted, a flex box gets created with entered information (
 
 * Flex
 
-*
-
 * JS
 
 * Bootstrap
