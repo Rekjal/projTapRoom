@@ -34,9 +34,14 @@ Additional feature built into this application are as below ..
 
 ## Specifications:
 
-* Spec 1: On `landing page`, click on `Add New Keg` button to render below component.
-+ Output: The app shall display information on entered Keg. ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Add_New_Keg.png)
-* Spec 1: Clicking anywhere inside the flex box 
+* Spec 1: On `landing page`, click on `Add New Keg` button
++ Output: The app shall display below component. ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Add_New_Keg.png)
+
+When above form is submitted, a flex box gets created with entered information (see image below) 
+
+![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_1_Keg.png)
+
+* Spec 2: Clicking anywhere inside the flex box 
 + Output: User gets navigated to `Keg Details page` from where user can either `Delete` entire keg or `Update` data pertaining to current keg. 
 
 ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_1_Keg.png)
