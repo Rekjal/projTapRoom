@@ -2,14 +2,14 @@
 
   
 
-#### A React web application that represents a Tap room Tracker where a Soda Fountain store can track their kegs. Owner of the store can track the remaining amount in each Soda Keg following are the main features of this application ...
+#### A React web application that represents a Tap room Tracker where a Soda Fountain store can track their kegs. Owner of the store can track the remaining amount in each Soda Keg following are the main features of this application...
 
   
 
 - Render list/menu of all available kegs. For each keg, `Name`,  `Brand`,  `Price`  and  `Flavor`  are displayed.
 -   User can submit a form to add a new keg to list.
 -   User can click on a keg to see its detail page.
--   User can see how many pints are left in a keg.  **PS:**  A keg is hardcoded to 15 pints for each of use (so that one can demonstate emptying of keg).
+-   User can see how many pints are left in a keg.  **PS:**  A keg is hardcoded to 15 pints for each of use (so that one can demonstrate emptying of keg).
 -   User can click a button next to a keg whenever a pint is sold. Each click will decrease the number of pints left by 1. Once pint hits 0, further reduction is prevented by disabling the button.
 
 ## Further Exploration
