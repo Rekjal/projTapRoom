@@ -14,6 +14,7 @@ class KegControl extends React.Component {
       selectedKeg: null, //Shared State (passed down to KegDetail.jsx and EditKegForm.jsx )
       alertMessage: null,
       editing: false,
+      disableButton: null
     };
   }
 
@@ -22,7 +23,7 @@ class KegControl extends React.Component {
       this.setState({
         formToRender: false,
         selectedKeg: null,
-        editing: false,
+        editing: false
       });
     } else {
       this.setState((prevState) => ({
@@ -86,6 +87,7 @@ class KegControl extends React.Component {
 
   handlePintSale = (id) => {
     console.log("Inside KEGCONTROL.JSX ");
+    const tempDisableButton = "disabled"
     const tempSelectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
     )[0];
@@ -95,6 +97,7 @@ class KegControl extends React.Component {
 
     if (tempSelectedKeg.pintQty === 0) {
       tempSelectedKeg.alertMessage2 = "Out Of Stock";
+      tempSelectedKeg.disableButton = tempDisableButton;
     } else if (tempSelectedKeg.pintQty > 0) {
       if (tempSelectedKeg.pintQty >= 1 && tempSelectedKeg.pintQty <= 9) {
         tempSelectedKeg.alertMessage2 = "Almost Empty";
@@ -107,6 +110,7 @@ class KegControl extends React.Component {
 
     this.setState({
       masterKegList: tempNewMasterKegList,
+      disableButton: tempDisableButton,
       formToRender: false,
     });
   };
