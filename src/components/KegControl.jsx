@@ -14,7 +14,7 @@ class KegControl extends React.Component {
       selectedKeg: null, //Shared State (passed down to KegDetail.jsx and EditKegForm.jsx )
       alertMessage: null,
       editing: false,
-      disableButton: null
+      disableButton: null,
     };
   }
 
@@ -23,7 +23,7 @@ class KegControl extends React.Component {
       this.setState({
         formToRender: false,
         selectedKeg: null,
-        editing: false
+        editing: false,
       });
     } else {
       this.setState((prevState) => ({
@@ -34,10 +34,6 @@ class KegControl extends React.Component {
 
   handleAddingNewKegToList = (newKeg) => {
     //Adding new ticket involves Mutating state of SHARED STATE "masterKegList"
-    console.log(
-      "Executing (NEW FORM) handleAddingNewKegToList inside KegControl.jsx - OBJECT IS PASTED BELOW"
-    );
-    console.log(newKeg);
     const newMasterKegList = this.state.masterKegList.concat(newKeg);
     this.setState({
       masterKegList: newMasterKegList,
@@ -46,16 +42,10 @@ class KegControl extends React.Component {
   };
 
   handleChangingSelectedKeg = (id) => {
-    console.log(
-      "Executing handleChangingSelectedKeg inside KegControl.jsx - ID IS PASTED BELOW"
-    );
-    console.log(id);
     //handle click event on a ticket
     const selectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
     )[0];
-    console.dir("Printing object value ");
-    console.log(selectedKeg);
     this.setState({ selectedKeg: selectedKeg }); //selectedKeg will store object from SHARED SHARE masterKegList with a UUID corresponding to clicked keg
   };
 
@@ -86,8 +76,7 @@ class KegControl extends React.Component {
   };
 
   handlePintSale = (id) => {
-    console.log("Inside KEGCONTROL.JSX ");
-    const tempDisableButton = "disabled"
+    const tempDisableButton = "disabled";
     const tempSelectedKeg = this.state.masterKegList.filter(
       (keg) => keg.id === id
     )[0];
@@ -106,7 +95,6 @@ class KegControl extends React.Component {
     const tempNewMasterKegList = this.state.masterKegList
       .filter((keg) => keg.id !== id)
       .concat(tempSelectedKeg); //filter out clicked one & then concatenate pint qty updated object
-    console.log("INside KEGCONTROL.JSX; Message is ");
 
     this.setState({
       masterKegList: tempNewMasterKegList,
@@ -128,7 +116,6 @@ class KegControl extends React.Component {
       );
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
-      console.log("Inside the selectedKeg NOT null CONDITIONAL RENDERING");
       currentlyVisibleForm = (
         <KegDetail
           keg={this.state.selectedKeg}
@@ -163,9 +150,7 @@ class KegControl extends React.Component {
         </div>
         <div>
           <br></br>
-          <button className="buttonPrimary btn btn-primary" onClick={this.handleClick}>
-            {buttonText}
-          </button>{" "}
+          <button className="buttonPrimary btn btn-primary" onClick={this.handleClick}>{buttonText}</button>
         </div>
       </React.Fragment>
     );

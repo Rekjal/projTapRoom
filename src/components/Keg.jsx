@@ -16,7 +16,7 @@ function Keg(props) {
 
   return (
     <React.Fragment>
-      <div className="FlashCard coralColor">
+      <div className="KegCard coralColor">
         <div className="divAlign">
           <div className="divAlign1" onClick={() => whenKegClicked(id)}>
             <p><span className="black">Name: </span>{kegName}</p>
@@ -36,10 +36,7 @@ function Keg(props) {
 Keg.propTypes = {
   whenKegClicked: PropTypes.func,
   whenKegPintSaleClicked: PropTypes.func,
-  kegName: PropTypes.string,
-  kegBrand: PropTypes.string,
-  message: PropTypes.string,
-  id: PropTypes.string,
+  Keg: PropTypes.array
 };
 
 export default Keg;
