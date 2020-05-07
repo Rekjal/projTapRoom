@@ -26,16 +26,6 @@ Additional feature built into this application are as below ..
 
 -  When pints left in a keg is under 10, keg gets updated with a message `"Almost Empty"`.
 
-+ `Title`
-
-+ `Date Created`
-
-+ `Description`
-
-+ `Image URL`
-
-- Further, user can navigate through every retrieved image by using `Previous` and `Next` buttons. These two buttons operate in a cyclical manner - meaning if user clicks `Next` when `final` image is in view, the subsequent image rendered would be the very `first` one. Similarly, if user clicks `Previous` when `first` image is in view, the subsequent image rendered would be the `final` one
-
 ##### Date: **05/08/2020**
 
 #### By **Salim Mayan**
@@ -45,8 +35,9 @@ Additional feature built into this application are as below ..
 ## Specifications:
 
 * Spec 1: On `landing page`, click on `Add New Keg` button to render below component.
-* ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Add_New_Keg.png)
-+ Output: The app shall display information on entered Keg. Clicking anywhere inside the flex box would navigate user to `Keg Details page` from where user can either `Delete` or `Update` data pertaining to current keg. 
++ Output: The app shall display information on entered Keg. ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Add_New_Keg.png)
+* Spec 1: Clicking anywhere inside the flex box 
++ Output: User gets navigated to `Keg Details page` from where user can either `Delete` entire keg or `Update` data pertaining to current keg. 
 
 ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_1_Keg.png)
 
