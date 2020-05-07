@@ -29,31 +29,18 @@ function Keg(props) {
   return (
     <React.Fragment>
       <div className="FlashCard coralColor">
-      <div onClick={() => whenKegClicked(id)} >
         <div className="divAlign">
-          <p>
-            <span className="black">Name: </span>
-            {kegName}>
-          </p>
-          <p>
-            <span className="black">Brand: </span>
-            {kegBrand}
-          </p>
-          <p>
-            <span className="black">Pint Qty: </span>
-            {pintQty}
-          </p>
-          {message === "Almost Empty" ? (
-            <div className="yellowColor">{message}</div>
-          ) : (
-            <div className="redColor">{message}</div>
-          )}
+          <div className="divAlign1" onClick={() => whenKegClicked(id)}>         
+            <p> <span className="black">Name: </span>{kegName}</p>
+            <p><span className="black">Brand: </span>{kegBrand}</p>
+            <p><span className="black">Pint Qty: </span>{pintQty}</p>
+            <p>{message === "Almost Empty" ? (<div className="yellowColor">{message}</div>) : (<div className="redColor">{message}</div>)}</p>
+          </div>
+             
+          <div className ="buttonWidth">
+            <button className="btn btn-success button" onClick={() => whenKegPintSaleClicked(id)}>Sell</button>
+          </div>
         </div>
-        <br></br>
-      </div>
-      <div>
-        <button className="btn btn-success button" onClick={() => whenKegPintSaleClicked(id)} >Sell</button>
-      </div>
       </div>
     </React.Fragment>
   );

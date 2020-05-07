@@ -3,23 +3,57 @@ import PropTypes from "prop-types";
 
 function KegDetail(props) {
   const { keg, onClickingDelete } = props;
+
+  const myStyledComponentStyles = {
+    width: "700px",
+    height: "400px",
+    border: "2px lightgrey solid",
+    borderradius: "5px",
+    boxshadow: "3px 3px 3px 0 lightgrey",
+    display: "flex",
+    flexdirection: "column",
+  };
+
   return (
     <React.Fragment>
-      <div > 
-        {/* className="KegDetail" */}
-        {/* <h1> KeGDetail.jsx</h1> */}
-        <h3>Keg Details: {keg.kegName} </h3>
-        <p>Brand: {keg.kegBrand}</p>
-        <p>Price: ${keg.kegPrice}</p>
-        <p>Flavor: {keg.kegFlavor}</p>
-        <p>Pint Quantity: {keg.pintQty}</p>
-        <p>Key: {keg.id}</p>
-        <br></br>
-        <button onClick={props.onClickingEdit}>Update Keg</button>
-        {/* When "Update Keg" button is clicked, STATE of "editing" is mutated (set to TRUE) in KegControl.jsx */}
-        <br></br>
-        <button onClick={() => onClickingDelete(keg.id)}>Delete Keg</button>
-        <hr />
+      <div className="kegDetail coralColor">
+        <h3>
+          <b>Keg Details: </b>
+          <span className="coralColor">{keg.kegName} </span>
+        </h3>
+        <p>
+          <span className="black">Brand: </span>
+          {keg.kegBrand}
+        </p>
+        <p>
+          <span className="black">Price: </span>
+          {keg.kegPrice}
+        </p>
+        <p>
+          <span className="black">Flavor: </span>
+          {keg.kegFlavor}
+        </p>
+        <p>
+          <span className="black">Quantity: </span>
+          {keg.pintQty}
+        </p>
+        <p>
+          <span className="black">ID: </span>
+          {keg.id}
+        </p>
+
+        <div className="kegDetailButton coralColor">
+          <button
+            className="btn btn-warning"
+            onClick={props.onClickingEdit}
+          >
+            Update Keg
+          </button>
+
+          {/* When "Update Keg" button is clicked, STATE of "editing" is mutated (set to TRUE) in KegControl.jsx */}
+          <br></br>
+          <button className="btn btn-danger" onClick={() => onClickingDelete(keg.id)}>Delete Keg</button>
+        </div>
       </div>
     </React.Fragment>
   );

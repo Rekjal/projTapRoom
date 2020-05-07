@@ -3,7 +3,7 @@ import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
 import KegDetail from "./KegDetail";
 import EditKegForm from "./EditKegForm";
-import "./FlashCard.css";
+import "./Keg.css";
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -159,7 +159,7 @@ class KegControl extends React.Component {
         </div>
         <div>
           <br></br>
-          <button className="button_2" onClick={this.handleClick}>
+          <button className="buttonPrimary btn btn-primary" onClick={this.handleClick}>
             {buttonText}
           </button>{" "}
         </div>

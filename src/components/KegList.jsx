@@ -1,7 +1,7 @@
 import React from "react";
 import Keg from "./Keg";
 import PropTypes from "prop-types";
-import './FlashCard.css';
+import './Keg.css';
 
 function KegList(props) {
   // console.log("Inside KegList.jsx");

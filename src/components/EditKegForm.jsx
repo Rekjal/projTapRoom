@@ -1,36 +1,37 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
+import "./Keg.css";
 
-function EditKegForm (props) {
-const { keg } = props;
- 
+function EditKegForm(props) {
+  const { keg } = props;
 
   function handleEditKegFormSubmission(event) {
     event.preventDefault();
-    props.onEditKeg(
-       {kegName: event.target.kegName.value,
-        kegBrand: event.target.kegBrand.value,
-        kegPrice: event.target.kegPrice.value,
-        kegFlavor: event.target.kegFlavor.value,
-        pintQty: keg.pintQty,
-        id: keg.id
-      });
-        // key:event.target.key.value});
+    props.onEditKeg({
+      kegName: event.target.kegName.value,
+      kegBrand: event.target.kegBrand.value,
+      kegPrice: event.target.kegPrice.value,
+      kegFlavor: event.target.kegFlavor.value,
+      pintQty: keg.pintQty,
+      id: keg.id,
+    });
   }
 
-  console.log ("Inside EditKegForm.jsx:  pintQty: keg.pintQty is" +  keg.pintQty);
-  console.log ("Inside EditKegForm.jsx:  id: keg.id is" +  keg.id);
-  return (
+  return (    
     <React.Fragment>
-       <h1> EditKegForm.jsx</h1>
-      <ReusableForm formSubmissionHandler={handleEditKegFormSubmission} buttonText="Update Keg" />
+      
+      <ReusableForm
+        formSubmissionHandler={handleEditKegFormSubmission}
+        buttonText="Update Keg"
+      />
+     
     </React.Fragment>
   );
 }
 
 EditKegForm.propTypes = {
-  onEditKeg: PropTypes.func
+  onEditKeg: PropTypes.func,
 };
 
 export default EditKegForm;
