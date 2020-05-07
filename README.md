@@ -48,7 +48,7 @@ When above form is submitted, a flex box gets created with entered information (
 
 + Output: User gets navigated to `Keg Details page` from where one can either `Delete` entire keg or `Update` data pertaining to current keg.
 
-![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_many_Kegs.png)
+![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Keg_Details_page.png)
 
 * Spec 3: Rendering of unlimited number of cards in an evenly spaced manner
 
