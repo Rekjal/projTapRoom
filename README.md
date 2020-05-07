@@ -1,3 +1,7 @@
+<![endif]-->
+
+<![endif]-->
+
 # # React Fundamentals: `Soda Fountain` Tap Room
 
 #### A React web application that represents a `Tap room Tracker` where a `Soda Fountain store` can track their kegs. Application lets store track the remaining amount in each Soda Keg & following are the main features of this application...
@@ -48,7 +52,7 @@ When above form is submitted, a flex box gets created with entered information (
 
 + Output: User gets navigated to `Keg Details page` from where one can either `Delete` entire keg or `Update` data pertaining to current keg.
 
-![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Keg_Details_page.png)
+![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_many_Kegs.png)
 
 * Spec 3: Rendering of unlimited number of cards in an evenly spaced manner
 
