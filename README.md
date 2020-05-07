@@ -44,11 +44,9 @@ Additional feature built into this application are as below ..
 
 ## Specifications:
 
-* Spec 1: Click on `Add New Keg` button to render below component.
-
-+ Input: Select `Without Meta Data` option from drop down and click `Submit`
-
-+ Output: The app shall start by displaying the very first image in the box on the right marked `Image Result`. `Next` and `Previous` buttons get rendered via which user can navigate through rest of the images returned by API call
+* Spec 1: On `landing page`, click on `Add New Keg` button to render below component.
+* ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Add_New_Keg)
++ Output: The app shall display information on entered Keg. Clicking anywhere inside the flex box would navigate user to `Keg Details page` from where user can either `Delete` or `Update` data pertaining to current keg. 
 
 ![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_1_Keg.png)
 
