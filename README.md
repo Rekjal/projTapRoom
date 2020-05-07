@@ -1,7 +1,3 @@
-<![endif]-->
-
-<![endif]-->
-
 # # React Fundamentals: `Soda Fountain` Tap Room
 
 #### A React web application that represents a `Tap room Tracker` where a `Soda Fountain store` can track their kegs. Application lets store track the remaining amount in each Soda Keg & following are the main features of this application...
@@ -60,7 +56,7 @@ When above form is submitted, a flex box gets created with entered information (
 
 + Output: UI will render multiple kegs in an evenly spaced manner
 
-![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/src/img/Tap_Room_with_many_Kegs.png)
+![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_with_many_Kegs.png)
 
 * Spec 4: Track remaining pint in a Keg and displaying alert messages when quantity edges closer to 0
 
@@ -74,7 +70,7 @@ When above form is submitted, a flex box gets created with entered information (
 
 + When pints left in a keg is under 10, keg gets updated with a message `"Almost Empty"`.
 
-![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_tracking_pints_and_alert_Messages)
+![alt text](https://github.com/Rekjal/projTapRoom/blob/master/src/img/Tap_Room_tracking_multiple_kegs_its_pints_and_alert_Messages.png)
 
 ## Setup/Installation Requirements
 
